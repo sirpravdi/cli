@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import { useSelector } from 'react-redux';
+
 import dayjs from 'dayjs';
 import 'dayjs/locale/ru';
 
@@ -19,7 +21,7 @@ import ClockIcon from '../../images/clock.svg';
 
 import './index.scss';
 
-  const cards = [
+const cards = [
     {
       status: 'done',
       number: Math.floor(1000 + Math.random() * 9000),
@@ -144,13 +146,11 @@ import './index.scss';
       date: dayjs(new Date()).format('D MMM, hh:mm').replace('.', ''),
       duration: '230',
     },
-  ];
+];
 
 export const IndexPage = (props) => {
 
-  const [settings, setSettings] = useState({
-    isSettingsSet: JSON.parse(localStorage.getItem('is_settings_set')),
-  });
+  const isSettingsSet = useSelector((state) => state.isSettingsSet);
 
   const [modal, setModal] = useState({
     isDisplayed: false
@@ -224,7 +224,7 @@ export const IndexPage = (props) => {
     <>
     {modal.isDisplayed && <Modal onBuildCancel={onBuildCancel} onBuild={onBuild}/>}
     <>
-      {settings.isSettingsSet !== true ? (
+      {isSettingsSet !== true ? (
         <>
           <Header onClick={openSettingsPage} />
           <main className="main">

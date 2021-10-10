@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import MaskedInput from 'react-text-mask';
 
+import { useDispatch, useSelector } from 'react-redux';
+
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 
@@ -9,6 +11,8 @@ import ClearIcon from '../../images/clear.svg';
 import './index.scss';
 
 export const SettingsPage = (props) => {
+
+  const dispatch = useDispatch();
 
   const [repoName, setRepoName] = useState({
     value: localStorage.getItem('repo_name'),
@@ -71,7 +75,7 @@ export const SettingsPage = (props) => {
 
     const data = new FormData(e.target);
 
-    localStorage.setItem('is_settings_set', true);
+    dispatch({type: 'SET_SETTINGS'});
 
     for (var [key, value] of data.entries()) {
       localStorage.setItem(key, value);
@@ -80,7 +84,7 @@ export const SettingsPage = (props) => {
     setTimeout(() => {
       let result = Math.floor(Math.random() * 10);
 
-      if (result > 5) {
+      if (result >= 5) {
         props.history.push('/');
       } else {
         setError({value: true});
