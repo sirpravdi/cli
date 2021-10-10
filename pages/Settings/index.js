@@ -15,19 +15,19 @@ export const SettingsPage = (props) => {
   const dispatch = useDispatch();
 
   const [repoName, setRepoName] = useState({
-    value: localStorage.getItem('repo_name'),
+    value: localStorage.getItem('repo_name') || '',
   });
 
   const [buildCommand, setBuildCommand] = useState({
-    value: localStorage.getItem('build_command')
+    value: localStorage.getItem('build_command') || ''
   });
 
   const [branch, setBranch] = useState({
-    value: localStorage.getItem('branch'),
+    value: localStorage.getItem('branch') || '',
   });
 
   const [syncPeriod, setSyncPeriod] = useState({
-    value: localStorage.getItem('sync_period'),
+    value: localStorage.getItem('sync_period') || '',
   });
 
   const [isBtnDisabled, setBtnDisabled] = useState({
@@ -61,6 +61,14 @@ export const SettingsPage = (props) => {
         break;
     }
   };
+
+  function handleFocus({target}) {
+    target.parentElement.style.borderColor = '#B3B3B3';
+  }
+
+  function handleBlur({target}) {
+    target.parentElement.style.borderColor = '#d9d9d9';
+  }
 
   function handleCancel (e) {
     e.preventDefault();
@@ -130,6 +138,8 @@ export const SettingsPage = (props) => {
                 className="settings__input"
                 required
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 value={repoName.value}
                 placeholder="user-name/repo-name"
               />
@@ -153,6 +163,8 @@ export const SettingsPage = (props) => {
                 className="settings__input"
                 required
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 value={buildCommand.value}
               />
               {buildCommand.value && (
@@ -172,6 +184,8 @@ export const SettingsPage = (props) => {
                 name="branch"
                 className="settings__input"
                 onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
                 value={branch.value}
               />
               {branch.value && (
@@ -195,9 +209,11 @@ export const SettingsPage = (props) => {
             />
             minutes
           </label>
-          {error.value && <p className="settings__error">
-            Something went wrong, please try again
-          </p>}
+          {error.value && (
+            <p className="settings__error">
+              Something went wrong, please try again
+            </p>
+          )}
           <div className="settings__controls">
             <button
               className="settings__btn settings__btn_yellow"
