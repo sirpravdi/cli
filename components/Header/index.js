@@ -8,7 +8,7 @@ import './index.scss';
 export const Header = (props) =>  {
 
   const [header, setHeader] = useState({
-    title: localStorage.getItem('repo_name').length
+    title: localStorage.getItem('repo_name')
       ? localStorage.getItem('repo_name')
       : 'School CI server',
     isSettingsSet: JSON.parse(localStorage.getItem('is_settings_set')),
