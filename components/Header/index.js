@@ -11,7 +11,7 @@ export const Header = (props) =>  {
     title: localStorage.getItem('repo_name')
       ? localStorage.getItem('repo_name')
       : 'School CI server',
-    isSettingsSet: JSON.parse(localStorage.getItem('is_settings_set')),
+    isSettingsSet: JSON.parse(localStorage.getItem('is_settings_set')) || false,
   });
 
   function openSettings(e) {

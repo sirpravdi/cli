@@ -149,7 +149,7 @@ import './index.scss';
 export const IndexPage = (props) => {
 
   const [settings, setSettings] = useState({
-    isSettingsSet: JSON.parse(localStorage.getItem('is_settings_set')),
+    isSettingsSet: JSON.parse(localStorage.getItem('is_settings_set')) || false,
   });
 
   const [modal, setModal] = useState({

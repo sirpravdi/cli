@@ -20,6 +20,14 @@ export const Modal = (props) => {
     props.onBuild(hash.value);
   }
 
+  function handleFocus({ target }) {
+    target.parentElement.style.borderColor = '#B3B3B3';
+  }
+
+  function handleBlur({ target }) {
+    target.parentElement.style.borderColor = '#d9d9d9';
+  }
+
   return (
     <div className="overlay">
       <div className="modal">
@@ -33,16 +41,22 @@ export const Modal = (props) => {
             placeholder="Commit hash"
             value={hash.value}
             onChange={handleHashChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
           />
-          {hash.value && <img
-            src={ClearIcon}
-            alt="clear"
-            className="modal__clear"
-            onClick={clearHash}
-          /> }
+          {hash.value && (
+            <img
+              src={ClearIcon}
+              alt="clear"
+              className="modal__clear"
+              onClick={clearHash}
+            />
+          )}
         </label>
         <div className="modal__controls">
-          <button className="modal__btn modal__btn_yellow" onClick={onBuild}>Run build</button>
+          <button className="modal__btn modal__btn_yellow" onClick={onBuild}>
+            Run build
+          </button>
           <button
             className="modal__btn modal__btn_white"
             onClick={props.onBuildCancel}
