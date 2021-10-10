@@ -1,0 +1,79 @@
+@import '../../variables.scss';
+
+.header {
+  display: flex;
+  padding: 10px 100px;
+  box-sizing: border-box;
+  justify-content: space-between;
+
+  @media screen and (max-width: 576px) {
+    padding: 12px 16px;
+  }
+
+  &__controls {
+    display: flex;
+  }
+
+  &__title {
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 500;
+
+    color: $blue-gray;
+
+    &_black {
+      color: $color-text;
+    }
+  }
+
+  &-btn {
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    padding: 0 13px 0 8px;
+    height: 28px;
+
+    background-color: $bg-control;
+
+    font-size: 13px;
+    color: $color-text;
+
+    border: 0;
+    border-radius: 4px;
+
+    &_small {
+      font-size: 0;
+      padding: 8px;
+
+      margin-left: 8px;
+
+      .header-btn__icon {
+        margin-right: 0;
+      }
+    }
+
+    @media screen and (max-width: 576px) {
+      font-size: 0;
+      padding: 8px;
+    }
+
+    &:hover {
+      background-color: $bg-control-hovered;
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: 2px solid #B3B3B3;
+    }
+
+    &__icon {
+      margin-right: 5px;
+
+      @media screen and (max-width: 576px) {
+        margin-right: 0;
+      }
+    }
+  }
+}

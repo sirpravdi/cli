@@ -1,0 +1,49 @@
+@import '../../variables.scss';
+
+.footer {
+  display: flex;
+  width: 100%;
+  
+  position: absolute; 
+  bottom: 0;
+
+  background-color: #F0F2F3;
+
+  padding: 8px 100px;
+
+  box-sizing: border-box;
+  justify-content: space-between;
+
+  @media screen and (max-width: 576px) {
+    flex-flow: column;
+    gap: 8px;
+
+    padding: 12px 16px;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    font-size: 13px;
+    line-height: 16px;
+    color: $blue-gray;
+
+    &:not(:first-child) {
+      margin-left: 12px;
+    }
+
+    &:hover {
+      color: $red;
+      cursor: pointer;
+    }
+  }
+
+  &__info {
+    font-size: 13px;
+    line-height: 18px;
+    color: $blue-gray;
+  }
+}

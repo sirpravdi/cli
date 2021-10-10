@@ -1,0 +1,226 @@
+@import './variables.scss';
+
+.main {
+  height: calc(100% - 80px);
+  min-height: 450px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+
+  &__btn {
+    margin-top: 24px;
+    background-color: $bg-action;
+    padding: 0 20px;
+    font-size: 13px;
+    line-height: 1;
+    height: 36px;
+
+    border: 0px;
+    border-radius: 4px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $bg-action-hovered;
+    }
+
+    &:focus {
+      outline: 2px solid #B38F00;
+    }
+  }
+
+  &__text {
+    font-size: 13px; 
+    line-height: 1.25;
+    text-align: center;
+    margin-top: 32px;
+  }
+}
+
+
+.main-card {
+  margin-top: 8px;
+  padding: 0 100px 54px;
+
+  display: flex;
+  flex-flow: column;
+  gap: 8px;
+
+  @media screen and (max-width: 576px) {
+    padding: 0 16px 86px;
+  }
+
+  &__show-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 92px;
+    height: 28px;
+
+    border-radius: 4px;
+    border: 0;
+
+    font-size: 13px;
+    line-height: 28px;
+
+    box-sizing: border-box;
+
+    background-color: $bg-control;
+
+    @media screen and (max-width: 576px) {
+      width: 100%;
+      height: 36px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: $bg-control-hovered;
+    }
+
+    &:focus {
+      outline: 2px solid #B3B3B3;
+    }
+  }
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+
+  padding: 12px 24px 12px 56px;
+
+  box-shadow: 0px 0px 1px rgba(67, 68, 69, 0.3), 0px 1px 1px rgba(67, 68, 69, 0.3);
+  border-radius: 6px;
+
+  box-sizing: border-box;
+
+  @media screen and (max-width: 576px) {
+    flex-flow: column;
+    gap: 8px;
+
+    padding: 16px 12px 16px 36px;
+  }
+
+  &__icon {
+    margin-right: 4px;
+    
+    &-status {
+      position: absolute;
+      top: 12px;
+      left: 24px;
+
+      height: 24px;
+      width: 24px;
+
+      @media screen and (max-width: 576px) {
+        height: 16px;
+        width: 16px;
+
+        top: 16px;
+        left: 12px;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-flow: column;
+    gap: 8px;
+  }
+
+  &__about {
+    display: flex;
+    align-items: baseline;
+
+    @media screen and (max-width: 576px) {
+      flex-flow: column;
+      gap: 8px;
+    }
+  }
+
+  &__message {
+    font-size: 15px;
+    line-height: 20px;
+    margin-left: 4px;
+
+    @media screen and (max-width: 576px) {
+      margin-left: 0;
+    }
+  }
+
+  &__number {
+    font-size: 18px;
+    line-height: 20px;
+
+    @media screen and (max-width: 576px) {
+      font-size: 16px;
+      line-height: 1;
+    }
+
+    &_done {
+      color: $green;
+    }
+
+    &_failed {
+      color: $red;
+    }
+
+    &_processing {
+      color: $orange;
+    }
+  }
+
+  &__general {
+    display: flex;
+
+    @media screen and (max-width: 576px) {
+      flex-flow: column;
+      gap: 8px;
+    }
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+
+    margin-left: 8px;
+
+    @media screen and (max-width: 576px) {
+      margin-left: 0;
+    }
+  }
+
+  &__commit,
+  &__date,
+  &__time {
+    display: flex;
+    align-items: center;
+  }
+
+  &__text {
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  &__comment {
+    color: rgba(0, 0, 0, 0.65);
+    margin-left: 4px;
+  }
+
+  &__timing {
+    display: flex;
+    flex-flow: column;
+    gap: 12px;
+
+    @media screen and (max-width: 576px) {
+      flex-flow: row;
+
+      border-top: 1px solid #F0F2F3;;
+      padding-top: 8px;
+    }
+  }
+
+}

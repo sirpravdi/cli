@@ -1,0 +1,172 @@
+@import './variables.scss';
+
+.settings {
+  padding-left: 100px;
+
+  @media screen and (max-width: 576px) {
+    padding: 0 16px;
+  }
+
+  &__title {
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 700;
+    color: $color-text;
+
+    margin-top: 8px;
+  }
+
+  &__info {
+    font-size: 13px;
+    line-height: 18px;
+    color: $blue-gray;
+
+    margin-top: 8px;
+  }
+
+  &__form {
+    display: flex;
+    flex-flow: column;
+    gap: 18px;
+
+    margin-top: 22px;
+  }
+
+  &__label {
+    display: flex;
+    flex-flow: column;
+
+    max-width: 474px;
+
+    font-size: 13px;
+    line-height: 18px;
+    color: $color-text;
+
+    @media screen and (max-width: 576px) {
+      width: 100%;
+      max-width: unset;
+    }
+
+    &_row {
+      flex-flow: row;
+      align-items: center;
+    }
+  }
+
+  &__star {
+    color: $red;
+  }
+
+  &__input-wrapper {
+    height: 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 11px 13px 10px;
+
+    border: 2px solid #d9d9d9;
+    border-radius: 4px;
+
+    box-sizing: border-box;
+  }
+
+  &__input {
+    border: none;
+    flex-grow: 1;
+
+    box-sizing: border-box;
+
+    &_small {
+      width: 52px;
+      margin: 0 8px;
+      border: 2px solid #d9d9d9;
+      flex-grow: 0;
+      border-radius: 4px;
+      height: 36px;
+      padding: 0 13px;
+    }
+
+    &:focus {
+      border-color:#b3b3b3;
+      outline: none;
+    }
+  }
+
+  &__clear {
+    width: 16px;
+    height: 16px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    
+    @media screen and (max-width: 576px) {
+      flex-flow: column;
+      gap: 12px;
+    }
+  }
+
+  &__btn {
+    height: 36px;
+    padding: 0 20px;
+
+    font-size: 13px;
+    line-height: 36px;
+
+    border: 0;
+    border-radius: 4px;
+
+    &_yellow {
+      background-color: $bg-action;
+
+      &:hover {
+        background-color: $bg-action-hovered;
+      }
+
+      &:focus {
+        outline: 2px solid #B38F00;
+      }
+
+      &:disabled {
+        background-color: $bg-disabled;
+      }
+    }
+
+    &_grey {
+      background-color: $bg-control;
+
+      &:hover {
+        background-color: $bg-control-hovered;
+        cursor: pointer;
+      }
+
+      &:focus {
+        outline: 2px solid #B3B3B3;
+      }
+
+      &:disabled {
+        background-color: $bg-disabled;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:first-child {
+      @media screen and (min-width: 577px) {
+        margin-right: 8px;
+      }
+    }
+  }
+
+  &__error {
+    color: $red;
+    font-size: 13px;
+  }
+}
