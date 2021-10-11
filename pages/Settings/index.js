@@ -89,16 +89,16 @@ export const SettingsPage = (props) => {
       localStorage.setItem(key, value);
     }
 
-    setTimeout(() => {
+     setTimeout(() => {
       let result = Math.floor(Math.random() * 10);
+      
+      setBtnDisabled({ value: false });
 
       if (result >= 5) {
         props.history.push('/');
       } else {
         setError({value: true});
       }
-
-      setBtnDisabled({ value: false });
     }, 5000);
   }
 
